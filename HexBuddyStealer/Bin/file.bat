@@ -33,7 +33,7 @@ powershell -c "Get-ChildItem 'C:\Program Files\*', 'C:\Program Files (x86)\*' | 
 powershell -c "Test-Path -Path 'Registry::HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Installer' | ft" > %USERPROFILE%\WindowsPrograms\Checking-registry-for-AlwaysInstallElevated.txt
 powershell -c "Get-ScheduledTask | where {$_.TaskPath -notlike '\Microsoft*'} | ft TaskName,TaskPath,State" > %USERPROFILE%\WindowsPrograms\Scheduled-Tasks.txt
 powershell -c "Get-ChildItem C:\Windows\Tasks | ft" > %USERPROFILE%\WindowsPrograms\
-powershell -c "Get-CimInstance Win32_StartupCommand | select Name, command, Location, User | fl"  > %USERPROFILE%\WindowsPrograms\
+powershell -c "Get-CimInstance Win32_StartupCommand | select Name, command, Location, User | fl"  > %USERPROFILE%\WindowsPrograms\Startup-Commands.txt
 powershell -c "Get-ChildItem c:\* -include *.xml,*.ini,*.txt,*.config -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.PSPath -notlike '*C:\temp*' -and $_.PSParentPath -notlike '*Reference Assemblies*' -and $_.PSParentPath -notlike '*Windows Kits*'}| Select-String -Pattern 'password'" > %USERPROFILE%\WindowsPrograms\Searching-for-files-with-passwords.txt
 powershell -c "reg query HKLM /f password /t REG_SZ /s"  > %USERPROFILE%\WindowsPrograms\Searching-HKLM-for-passwords.txt
 powershell -c "reg query HKCU /f password /t REG_SZ /s"  > %USERPROFILE%\WindowsPrograms\Searching-HKCU-for-passwords.txt
